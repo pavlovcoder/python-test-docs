@@ -42,3 +42,44 @@ for num in range(2, 10):
         print('Found an even number', num)
         continue
     print('Found a number', num)
+
+def ask_ok(propmt, retries=4, reminder='Please, try again!'):
+    while True:
+        ok = input(propmt)
+        if ok in ('y', 'ye', 'yes'):
+            return True
+        if ok in ('n', 'no', 'nop', 'nope'):
+            return False
+        retries = retries - 1
+        if retries < 0:
+            raise ValueError('invalid user response')
+        print(reminder)
+
+print('--------------------')
+# print('#3 Calling the defined fucntion:')
+# ask_ok('OK to overwrite the file', 2, 'Come on, only yes or no!')
+i = 5
+def f(arg=i):
+    print(arg)
+
+i = 6
+f()
+print('--------------------')
+def f_2(a, L=[]):
+    L.append(a)
+    return L
+
+print(f_2(1))
+print(f_2(2))
+print(f_2(3))
+
+print('--------------------')
+def f_3(a, L=None):
+    if L is None:
+        L = []
+    L.append(a)
+    return L
+
+print(f_3(1))
+print(f_3(2))
+print(f_3(3))
