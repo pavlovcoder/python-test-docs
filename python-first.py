@@ -83,3 +83,40 @@ def f_3(a, L=None):
 print(f_3(1))
 print(f_3(2))
 print(f_3(3))
+
+print('--------------------')
+def cheeseshop(kind, *arguments, **keywords):
+    print("-- Do you have any", kind, "?")
+    print("-- I'm sorry, we're all out of", kind)
+    for arg in arguments:
+        print(arg)
+    print("-" * 40)
+    for kw in keywords:
+        print(kw, ":", keywords[kw])
+
+cheeseshop("Limburger", "It's very runny, sir.", "It's really very, VERY runny, sir.", shopkeeper="Michael Palin", client="John Cleese", sketch="Cheese Shop Sketch")
+
+print('--------------------')
+def concat(sep="/", *args):
+    return sep.join(args)
+
+concat("earth", "mars", "venus")
+
+print('--------------------')
+print(list(range(3, 6)))
+args = [3, 6]
+print(list(range(*args)))
+
+print('--------------------')
+def parrot(voltage, state='a stiff', action='voom'):
+    print("-- This parrot wouldn't", action)
+    print("if you put", voltage, "volts through it.")
+    print("E's", state, "!")
+
+data = {
+    "voltage": "5356222",
+    "state": "bleedin' demised",
+    "action": "VOOM"
+}
+
+parrot(**data)
