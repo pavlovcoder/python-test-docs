@@ -120,3 +120,35 @@ data = {
 }
 
 parrot(**data)
+print('--------------------')
+def make_incrementor(n):
+    return lambda x: x + n
+
+f = make_incrementor(57)
+print(f(0))
+print(f(43))
+print(f(12))
+
+print('--------------------')
+pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four'), (5, 'five')]
+pairs.sort(key = lambda pair: pair[1])
+print(pairs)
+
+print('--------------------')
+def my_function():
+    """Do nothing, but document it.
+
+    No, really, it doesn't do anything.
+    """
+    pass
+
+print(my_function.__doc__)
+
+print('--------------------')
+def f(ham: str, eggs: str = 'eggs') -> str:
+    print('Annotations:', f.__annotations__)
+    print('Arguments:', ham, eggs)
+    return ham + ' and ' + eggs
+
+print(f('spam'))
+
