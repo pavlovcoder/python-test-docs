@@ -328,4 +328,46 @@ hellos = repr(hello)
 print(hellos)
 repr((x, y, ('spam', 'eggs')))
 
+#4 Basic usage of str.format() method:
+print('--------------------')
+print('We are the {} who say "{}!"'.format('knights', 'Ni'))
 
+#5 Using numbers on the str.format():
+print('--------------------')
+print('--------------------')
+print('{0} and {1}'.format('spam', 'eggs'))
+print('{1} and {0}'.format('spam', 'eggs'))
+
+#6 Using keywords om the str.format():
+print('--------------------')
+print('This {food} is {adjective}'.format(food='spam', adjective='absolutely horrible'))
+
+#7 Using combination of keywords and numbers on the str.format():
+print('--------------------')
+print('The story of {0}, {1} and {other}'.format('Bill', 'Manfred', other='Melinda'))
+
+#8 Using dictionary and square brackets for accesing keys of str.format():
+print('--------------------')
+table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 8637678}
+print('Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; ' 'Dcab: {0[Dcab]:d}'.format(table))
+
+#9 Using **syntax of dict for accesing the whole data:
+print('--------------------')
+print('Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}'.format(**table))
+
+#10 Creating a new tidily-aligned columns of data:
+print('--------------------')
+for x in range(1, 11):
+    print('{0:2d} {1:3d} {2:4d}'.format(x, x*x, x*x*x))
+
+#11 Manual string formatting:
+print('--------------------')
+for x in range(1, 20):
+    print(repr(x).rjust(2), repr(x*x).rjust(3))
+    print(repr(x*x*x).rjust(4))
+
+#12 Using zfill() function for numeric string filling:
+print('--------------------')
+print('12'.zfill(5))
+print('-3.14'.zfill(7))
+print('3.14159265359'.zfill(5))
