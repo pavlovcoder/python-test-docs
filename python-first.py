@@ -371,3 +371,68 @@ print('--------------------')
 print('12'.zfill(5))
 print('-3.14'.zfill(7))
 print('3.14159265359'.zfill(5))
+
+#Exceptions and Error Handling:
+
+#1 Syntax Errors:
+#print('--------------------')
+#while True:
+   #print('Simple Error Example...')
+
+#2 Exceptions handling:
+#print('--------------------')
+#10 * (1/0)
+#print('--------------------')
+#4 + spam * 3
+#print('--------------------')
+#'3' * 3 / 2
+
+#3 Handling Exceptions using user interruptions:
+print('--------------------')
+while True:
+  try:
+    x = int(input('Please enter a number:'))
+    break
+  except ValueError:
+    print('Oops! That was no valid number. Try again...')
+
+#4 Creating multiple names of exceptions on the tuples:
+print('--------------------')
+while True:
+  try:
+    y = int(input('Please enter a number:'))
+    break
+  except (RuntimeError, TypeError, NameError, ValueError):
+    print('Oops! That was no valid number. Try again...')
+
+#5 Handling multiple excepts clauses:
+print('--------------------')
+class B(Exception):
+  pass
+
+class C(B):
+  pass
+
+class D(C):
+  pass
+
+for cls in [B, C, D]:
+  try:
+    raise(cls)
+  except D:
+    print('D')
+  except C:
+    print('C')
+  except B:
+    print('B')
+
+#6 Handling multiple excepts clauses without matching name of the class:
+print('--------------------')
+class F(Exception):
+  pass
+  
+for cls in [B, C, D]:
+  try:
+    raise(cls)
+  except F:
+    print('F')
