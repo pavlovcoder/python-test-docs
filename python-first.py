@@ -426,13 +426,54 @@ for cls in [B, C, D]:
   except B:
     print('B')
 
-#6 Handling multiple excepts clauses without matching name of the class:
+#7 Testing multiple excepts clauses with empty name of last clause:
 print('--------------------')
-class F(Exception):
-  pass
-  
-for cls in [B, C, D]:
+'''
+import sys
+
+try:
+  f = open('myfile.txt')
+  s = f.readline()
+  i = int(s.strip())
+except OSError as err:
+  print("OS Error: {0}".format(err))
+except ValueError:
+  print("Could not convert data to an integer.")
+except:
+  print('Unexpected error:', sys.exc_info()[0])
+'''
+
+#8 Using else clause for handling try execution clause:
+print('--------------------')
+import sys
+
+for arg in sys.argv[1:]:
   try:
-    raise(cls)
-  except F:
-    print('F')
+    f = open(arg, 'r')
+  except OSError:
+    print('cannot open', arg)
+  else:
+    print(arg, 'has', len(f.readlines()), 'lines')
+    f.close()
+
+#9 Creating an instance variable:
+print('--------------------')
+try:
+  raise Exception('spam', 'eggs')
+except Exception as inst:
+  print(type(inst))
+  print(inst.args)
+  print(inst)
+  x, y = inst.args
+  print('x = ', x)
+  print('y = ', y) 
+
+#10 Handling exceptions on the function definition:
+print('--------------------')
+def this_fails():
+  x = 1/0
+
+try:
+  this_fails()
+except ZeroDivisionError as err:
+  print('Handling run-time error:', err)
