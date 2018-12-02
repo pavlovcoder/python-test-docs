@@ -469,6 +469,7 @@ except Exception as inst:
   print('y = ', y) 
 
 #10 Handling exceptions on the function definition:
+'''
 print('--------------------')
 def this_fails():
   x = 1/0
@@ -484,3 +485,41 @@ try:
 except NameError:
   print('An exception flew by!')
   raise
+
+'''
+
+#11 User defined exceptions:
+
+class Error(Exception):
+  """Base class for exceptionsin this module."""
+  pass
+
+class InputError(Error):
+  def __init__(self, expression, message):
+    self.expression = expression
+    self.message = message
+
+class TransitionError(Error):
+  def __init__(self, previous, next, message):
+    self.previous = previous
+    self.next = next
+    self.message = message
+
+#12 Defining a clean-up actions:
+print('--------------------')
+try:
+  raise KeyboardInterrupt
+finally:
+  print('Goodbye, world!')
+
+#13 Defining a few examples of finally clause:
+print('--------------------')
+def divide(x, y):
+  try:
+    result = x / y
+  except ZeroDivisionError:
+    print('division by zero!')
+  else:
+    print('result is', result)
+  finally:
+    print('executing finally clause')
