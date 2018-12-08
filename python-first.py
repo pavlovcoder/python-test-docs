@@ -505,12 +505,14 @@ class TransitionError(Error):
     self.next = next
     self.message = message
 
-#12 Defining a clean-up actions:
+#12 Defining a clean-up actions:s
+'''
 print('--------------------')
 try:
   raise KeyboardInterrupt
 finally:
   print('Goodbye, world!')
+'''
 
 #13 Defining a few examples of finally clause:
 print('--------------------')
@@ -523,3 +525,14 @@ def divide(x, y):
     print('result is', result)
   finally:
     print('executing finally clause')
+
+#14 Testing opening a selected file from the file system (without clean-up actions):
+print('--------------------')
+for line in open('test-python.txt'):
+  print(line, end="")
+
+#15 Testing predefined clean-up actions when open a file:
+print('\n--------------------')
+with open('test-python.txt') as f:
+  for line in f:
+    print(line, end="")
